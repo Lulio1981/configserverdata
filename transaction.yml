@@ -14,7 +14,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 server:
-  port: 8093
+  port: 8015
 
 # Swagger openapi.docs custom path
 springdoc:
