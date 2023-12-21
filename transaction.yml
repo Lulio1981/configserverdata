@@ -16,16 +16,6 @@ eureka:
 server:
   port: 8015
 
-# Swagger openapi.docs custom path
-springdoc:
-  api-docs:
-    path: transactions/docs
-    enabled: true
-  swagger-ui:
-    path: transactions/docs/ui
-    enabled: true
-  show-actuator: true
-
   
 #RESILIENCE4J CIRCUIT BREAKER
 resilience4j:
