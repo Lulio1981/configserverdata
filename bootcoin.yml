@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: ms-bootcoin
+  data:
+    mongodb:
+      uri: mongodb+srv://nttdatadb:nYUK5rr26fpJxkCM@bootcamp48.id8yl1x.mongodb.net/?retryWrites=true&w=majority
+      database: test
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 120s
+
+
+
+eureka:
+  client:
+    #telling the server not to register himself in the service registry
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8016
+
+
+#RESILIENCE4J CIRCUIT BREAKER
+resilience4j:
+  circuitbreaker:
+    configs:
+      defecto:
+        sliding-window-size: 6
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 20s
+        permitted-number-of-calls-in-half-open-state: 4
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+    instances:
+      enterpriseactiveloan:
+        base-config: defecto
+  timelimiter:
+    configs:
+      defecto:
+        timeout-duration: 2s
+    instances:
+      enterpriseactiveloan:
+        base-config: defecto
